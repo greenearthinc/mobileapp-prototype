@@ -1,0 +1,2 @@
+ffmpeg -re -f mjpeg -framerate 15 -i "http://10.0.9.156:8080/stream?topic=/camera/color/image_raw" -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i ./blank-audio/1-hour-of-silence.mp3 -acodec aac -ab 128k -strict experimental -s 640x480 -vcodec h264 -pix_fmt yuv420p -g 10 -vb 700k -preset ultrafast -crf 31 -framerate 15 -f flv "rtmp://a.rtmp.youtube.com/live2/euj2-2mww-fa8y-bqcb"
+
